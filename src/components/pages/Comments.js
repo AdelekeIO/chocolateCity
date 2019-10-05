@@ -26,23 +26,14 @@ export default class Comments extends Component {
   };
 
   // Add Comment
-  addComment = title => {
-    //  console.log(title);
-    // const newTodo = {
-    //   // id: uuid.v4(),
-    //   title,
-    //   completed: false
-    // }
-    //  this.setState({todos: [...this.state.todos, newTodo]})
-
+  addComment = comment => {
     axios
       .post("http://jsonplaceholder.typicode.com/todos", {
-        title,
-        completed: false
+        comment
       })
       .then(res =>
         this.setState({
-          todos: [...this.state.todos, res.data]
+          todos: [...this.state.comments, res.data]
         })
       );
   };
@@ -52,7 +43,7 @@ export default class Comments extends Component {
       <React.Fragment>
         <Header />
         <div className="container">
-          <AddComment />
+          <AddComment addComment={this.addComment} />
           <Comment comments={this.state.comments} />;
         </div>
       </React.Fragment>
