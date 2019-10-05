@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { get } from "http";
+import { comment } from "postcss";
 
-export default class Album extends Component {
+export default class Comment extends Component {
   state = {
     comments: []
   };
@@ -17,24 +18,27 @@ export default class Album extends Component {
     }
   }
   render() {
-    return this.props.albums.map(album => (
+    return this.props.comments.map(comment => (
       <div>
         {/* {JSON.stringify(this.props.albums)} */}
-        <div key={album.id} style={this.getStyle()}>
+        <div key={comment.id} style={this.getStyle()} className="container">
           <div className="row">
-            <img
-              className="mr-3"
-              src="https://via.placeholder.com/150/92c952"
-              alt="Smiley face"
-              height="42"
-              width="42"
-            />
-
-            <div>{album.title}</div>
+            <div className="col">
+              <div>
+                <b>Name: </b>
+                {comment.name}
+              </div>
+              <div>
+                <b>Email: </b>
+                {comment.email}
+              </div>
+            </div>
           </div>
           <div className="col p-2" style={{ border: "1px #ccc dotted" }}>
-            <div>{this.comments.bind(this)}nsnsnsn</div>
-            <form>Post comments</form>
+            <div>
+              <b>Comment</b>
+            </div>
+            <div>{comment.body}</div>
           </div>
         </div>
       </div>

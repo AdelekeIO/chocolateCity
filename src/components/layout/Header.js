@@ -9,6 +9,10 @@ export default function Header() {
         Home
       </Link>
       |
+      <Link to="/comments" style={linkSTyle}>
+        Comments
+      </Link>
+      |
       <Link to="/albums" style={linkSTyle}>
         Albums
       </Link>

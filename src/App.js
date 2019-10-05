@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Artists from "./components/Artists";
 import Header from "./components/layout/Header";
-import AddTodo from "./components/AddTodo";
+// import AddTodo from "./components/pages/AddTodo";
 import About from "./components/pages/About";
 // import uuid from 'uuid'
 import axios from "axios";
 import Albums from "./components/pages/Albums";
+import Comments from "./components/pages/Comments";
 
 class App extends React.Component {
   state = {
@@ -84,6 +85,7 @@ class App extends React.Component {
 
         <Route path="/about" component={About} />
         <Route path="/albums" component={Albums} />
+        <Route path="/comments" component={Comments} />
       </Router>
     );
   }
